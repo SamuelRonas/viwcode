@@ -1,0 +1,8 @@
+
+
+body {
+  background-image: url('./assets/1pX9-ezgif.com-speed.gif');
+  background-size:contain; /* Preencher o espaço */
+  background-repeat: repeat-x; /* Não repetir */
+  background-attachment: fixed; /* Fixo no fundo */
+}
