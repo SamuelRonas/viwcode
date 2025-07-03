@@ -6,7 +6,7 @@ type ThemeContextType = {
   setTema: (tema: string) => void;
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [tema, setTema] = useState('codeTemaApple');

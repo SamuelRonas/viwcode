@@ -1,73 +1,103 @@
-body,
-html {
-    margin: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* 1. Full‑page e centralização */
+html, body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.codeTemaApple {
-    width: 85%;
-    height: 85%;
-    display: flex;
-    resize: none;
-    background-color: #2c2c2c;
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    color: white;
-    padding: 3%;
-}
-.codeTemaVscode {
-    width: 85%;
-    height: 85%;
-    display: flex;
-    resize: none;
-    background-color: #21222c;
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    color: white;
-    padding: 3%;
-
-    .InterfaceCode{
-        height: 5%;
-        width: 11px;
-        background-color: aqua;
-    }
+/* 2. Wrapper do editor */
+.editor-wrapper {
+  position: relative;
+  width: 500px;
+  height: 300px;
 }
 
-
+/* 3. Seu container de background */
 .background {
-    position: absolute;
-    left: 50%;
-    top: 25%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background-color: rgb(77, 77, 77);
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    transform: translateX(-50%);
-    width: 500px;
-    height: 300px;
-    background-color: rgb(77, 77, 77);
-    border: 1px solid #aaa;
-    overflow: hidden;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 4. Temas (você escolhe via classe externa no wrapper) */
+.codeTemaApple,
+.codeTemaVscode {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  display: flex;
+  background-color: #2c2c2c; /* ajustável por tema */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  padding: 3%;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
 
+/* 5. O <pre><code> colorido por trás */
+.editor-wrapper pre {
+  position: absolute;
+  top: calc(50% - 42.5%);    /* para alinhar dentro do background */
+  left: calc(50% - 42.5%);
+  width: 85%;
+  height: 85%;
+  margin: 0;
+  padding: 3%;
+  box-sizing: border-box;
+  overflow: auto;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 
+/* 6. O <textarea> transparente por cima */
+.editor-wrapper textarea {
+  position: absolute;
+  top: calc(50% - 42.5%);
+  left: calc(50% - 42.5%);
+  width: 85%;
+  height: 85%;
+  margin: 0;
+  padding: 3%;
+  box-sizing: border-box;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: transparent;       /* texto invisível */
+  caret-color: rgb(255,255,255);
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 
-    /* Estilize o canto de redimensionamento como quiser */
-    .resizer {
-        width: 20%;
-        height: 20%;
-        background: transparent;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        cursor: se-resize;
-
-    }
-
-
+/* 7. Resizer no canto */
+.background .resizer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  cursor: se-resize;
+  background: transparent;
 }
