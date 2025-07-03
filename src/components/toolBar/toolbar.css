@@ -49,24 +49,6 @@
     filter: blur(2px);
 }
 
-.linguagem {
-    width: 100%;
-    height: 50px;
-    border: 4px solid #ffffff;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    color: rgb(255, 255, 255);
-    justify-self: center;
-    align-self: center;
-    background: #2c2c2c;
-    font-size: 16px;
-
-
-}
-.linguagem:hover{
-       border: 4px solid #c0c0c0;
-     color: #c0c0c0;
-}
 
 .exportar {
     width: 50%;

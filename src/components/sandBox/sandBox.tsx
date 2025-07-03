@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import './sandBox.css';
 import { useTema } from '../../context/ThemeContext';
 import hljs from 'highlight.js/lib/core';
-import typescript from 'highlight.js/lib/languages/typescript';
+import python from 'highlight.js/lib/languages/python';
 import 'highlight.js/styles/github-dark.css';
 
-hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('python', python);
 
 
 export function SandBox() {
@@ -17,7 +17,7 @@ export function SandBox() {
     const resizer = resizable?.querySelector(".resizer");
     const textarea = document.getElementById('input') as HTMLTextAreaElement;
     const code = document.getElementById('highlighted') as HTMLElement;
-    const language = 'typescript';
+    const language = 'py';
 
     const handleInput = () => {
       code.removeAttribute('data-highlighted');

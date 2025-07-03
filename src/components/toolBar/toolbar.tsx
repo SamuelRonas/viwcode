@@ -1,4 +1,5 @@
 import { useTema } from '../../context/ThemeContext'
+import { LanguageSelector } from './LanguageSelector/languageselector';
 import './toolbar.css'
 
 
@@ -12,7 +13,7 @@ export function ToolBar() {
                 <button className='temaApple' onClick={() => setTema('codeTemaApple')}></button>
             </div>
             
-            <button className='linguagem'>Selecione sua Linguagem</button>
+            <LanguageSelector/>
             <button className='exportar'>Exportar</button>
 
         </div>
