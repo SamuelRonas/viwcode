@@ -20,22 +20,17 @@ export function SandBox() {
     const language = 'typescript';
 
     const handleInput = () => {
+      code.removeAttribute('data-highlighted');
       const text = textarea.value;
       code.textContent = text;
       code.className = 'hljs language-' + language;
       hljs.highlightElement(code);
     };
     textarea?.addEventListener('input', handleInput);
-    code.textContent = textarea.value;
-    code.className = 'hljs language-' + language;
-    hljs.highlightElement(code);
+
 
 
     if (!resizable || !resizer) return;
-
-
-
-
 
     const onMouseDown = (e: Event) => {
       e.preventDefault();
