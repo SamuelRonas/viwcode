@@ -1,11 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, type JSX } from 'react';
 import './languageselector.css'
+import { languages } from './languages';
+import { useLang } from '../../../contexts/Language/LanguegeContex';
 
 export function LanguageSelector() {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  let linguagem = 'Selecione sua linguagem'
+  const {lang, setLang} = useLang();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -28,9 +30,11 @@ export function LanguageSelector() {
         <div className="dropdown" ref={dropdownRef} style={{
           width: buttonRef.current?.offsetWidth,
         }}>
-          <div className="option">TypeScript</div>
-          <div className="option">Python</div>
-          <div className="option">JavaScript</div>
+      {
+        languages.map((lang, index): React.ReactNode =>   {
+          return(<div key={index} className='option' onClick={()=> {setLang(lang)}}>{lang}</div>)
+        })
+      }
         </div>
       )}
       <button
@@ -38,7 +42,7 @@ export function LanguageSelector() {
         className="button-language"
         onClick={() => setOpen(!open)}
       >
-        {linguagem}
+        {lang}
       </button>
     </div>
   );

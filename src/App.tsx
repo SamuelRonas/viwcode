@@ -2,19 +2,17 @@
 import './App.css'
 import { SandBox } from './components/sandBox/sandBox'
 import { ToolBar } from './components/toolBar/toolbar'
-import { ThemeProvider } from './context/ThemeContext'
+import {AppProviders} from './contexts/globalContext'
 
 function App() {
 
 
   return (
     <>
-      <ThemeProvider>
+      <AppProviders>
         <SandBox />
         <ToolBar />
-
-      </ThemeProvider>
-
+      </AppProviders>
     </>
 
   )

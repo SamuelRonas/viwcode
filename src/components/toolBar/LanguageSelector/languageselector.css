@@ -1,6 +1,7 @@
 .dropdown-wrapper {
   position: relative;
   display: inline-block;
+  align-content: center;
 }
 
 .dropdown-button {
@@ -14,12 +15,25 @@
   position: absolute;
   bottom: 100%; /* Fica acima do botão */
   left: 0;
+  max-height: 200px;
   margin-bottom: 5px;
   background-color: #2c2c2c;
   border: 1px solid #aaa;
   border-radius: 4px;
   z-index: 100;
   color: white;
+  font-family: 'Inter', sans-serif;
+  overflow-y:auto;
+}
+.dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+.dropdown::-webkit-scrollbar-track {
+  background-color: #383838;
+}
+.dropdown::-webkit-scrollbar-thumb{
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .option {

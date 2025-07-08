@@ -1,4 +1,4 @@
-import { useTema } from '../../context/ThemeContext'
+import { useTema } from '../../contexts/Theme/ThemeContext'
 import { LanguageSelector } from './LanguageSelector/languageselector';
 import './toolbar.css'
 

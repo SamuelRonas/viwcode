@@ -1,29 +1,31 @@
 import { useEffect } from 'react';
 import './sandBox.css';
-import { useTema } from '../../context/ThemeContext';
-import hljs from 'highlight.js/lib/core';
-import python from 'highlight.js/lib/languages/python';
+import { useTema } from '../../contexts/Theme/ThemeContext';
+import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark.css';
+import { useLang } from '../../contexts/Language/LanguegeContex';
 
-hljs.registerLanguage('python', python);
+
 
 
 export function SandBox() {
 
   const { tema } = useTema();
+      const {lang} = useLang(); 
 
   useEffect(() => {
     const resizable = document.getElementById("resizable");
     const resizer = resizable?.querySelector(".resizer");
     const textarea = document.getElementById('input') as HTMLTextAreaElement;
     const code = document.getElementById('highlighted') as HTMLElement;
-    const language = 'py';
+
 
     const handleInput = () => {
       code.removeAttribute('data-highlighted');
       const text = textarea.value;
       code.textContent = text;
-      code.className = 'hljs language-' + language;
+      code.className = 'hljs language-' + lang;
+      console.log(lang)
       hljs.highlightElement(code);
     };
     textarea?.addEventListener('input', handleInput);
@@ -63,7 +65,7 @@ export function SandBox() {
       textarea?.removeEventListener('input', handleInput);
       resizer.removeEventListener("mousedown", onMouseDown);
     };
-  }, []);
+  }, [lang]);
 
   return (
     <div className="editor-wrapper">
