@@ -4,6 +4,7 @@ import { useTema } from '../../contexts/Theme/ThemeContext';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark.css';
 import { useLang } from '../../contexts/Language/LanguegeContex';
+import { useImage } from '../../contexts/image/imageContext';
 
 
 
@@ -11,7 +12,9 @@ import { useLang } from '../../contexts/Language/LanguegeContex';
 export function SandBox() {
 
   const { tema } = useTema();
-      const {lang} = useLang(); 
+  const {lang} = useLang();
+  
+  const {image} = useImage();
 
   useEffect(() => {
     const resizable = document.getElementById("resizable");
@@ -69,7 +72,7 @@ export function SandBox() {
 
   return (
     <div className="editor-wrapper">
-      <div className="background" id="resizable">
+      <div ref={image} className="background" id="resizable">
         <div className={tema}>
           <div className="InterfaceCode">
             <div className="icon"></div>

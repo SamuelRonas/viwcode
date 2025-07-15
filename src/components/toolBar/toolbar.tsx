@@ -1,4 +1,5 @@
 import { useTema } from '../../contexts/Theme/ThemeContext'
+import { ExportButton } from './ExportButton/exportbutton';
 import { LanguageSelector } from './LanguageSelector/languageselector';
 import './toolbar.css'
 
@@ -14,7 +15,9 @@ export function ToolBar() {
             </div>
             
             <LanguageSelector/>
-            <button className='exportar'>Exportar</button>
+            <ExportButton/>
+            
+            
 
         </div>
     )
